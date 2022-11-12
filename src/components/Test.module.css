@@ -1,0 +1,11 @@
+.button {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid greenyellow;
+    justify-content: center;
+}
+
+.button:hover {
+    background-color: burlywood;
+}
