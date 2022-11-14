@@ -1,52 +1,30 @@
- import { Fragment, useState } from 'react';
-//  import Test from './components/Test';
-//  import TestWindow from './components/TestWindow';
+import { useState } from 'react';
+
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 import Cart from './components/Cart/Cart';
+import CartProvider from './store/CartProvider';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
-  const showCart = () => {
+
+  const showCartHandler = () => {
     setCartIsShown(true);
   };
-  const hideCart = () => {
+
+  const hideCartHandler = () => {
     setCartIsShown(false);
   };
 
   return (
-    <Fragment>
-      {cartIsShown && <Cart onClose={hideCart}/>}
-      <Header onShowCart={showCart}/>
+    <CartProvider>
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>
-    </Fragment>
+    </CartProvider>
   );
 }
+
 export default App;
-
-
-
-
-
-// function App() {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const [name, secondName] = useState('Test Button 1');
-//   const close = () => {
-//     setIsOpen(false);
-//     secondName('Test Button 1');
-//   }
-//   const open = () => {
-//     setIsOpen(true);
-//     secondName('change');
-//   }
-//   return (
-//     <Fragment>
-//       <Test name={name} onShow={open}/>
-//       {isOpen && <TestWindow onHide={close} name="Close Me !"></TestWindow>}
-//     </Fragment>
-//   );
-// }
-
-// export default App;
