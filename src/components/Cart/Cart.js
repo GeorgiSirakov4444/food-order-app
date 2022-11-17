@@ -10,7 +10,7 @@ const Cart = props => {
             name: 'pushi',
             amount: 4,
             price: 3.99
-        }].map((item) => <li key='1'>{item.name}</li>)}
+        }].map((item) => <li>{item.name}</li>)}
     </ul>
 
     return (
